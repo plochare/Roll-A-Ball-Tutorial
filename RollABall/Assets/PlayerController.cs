@@ -6,6 +6,9 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
+
+ public AudioSource coinAudio; 
+
  // Rigidbody of the player.
  private Rigidbody rb; 
 
@@ -51,6 +54,8 @@ public class PlayerController : MonoBehaviour
         {
  // Deactivate the collided object (making it disappear).
             other.gameObject.SetActive(false);
+            // Play Sound Effect
+            coinAudio.Play();
         }
     }
 
