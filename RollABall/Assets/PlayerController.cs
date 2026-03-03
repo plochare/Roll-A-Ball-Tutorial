@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
 {
 
  public AudioSource coinAudio; 
+ public GameObject explosionPrefab;
 
  // Rigidbody of the player.
  private Rigidbody rb; 
@@ -54,6 +55,10 @@ public class PlayerController : MonoBehaviour
         {
  // Deactivate the collided object (making it disappear).
             other.gameObject.SetActive(false);
+            // Show Particle Effect
+            GameObject myPrefab = Instantiate(explosionPrefab);
+            myPrefab.transform.position = other.transform.position;
+            
             // Play Sound Effect
             coinAudio.Play();
         }
